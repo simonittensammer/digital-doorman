@@ -29,6 +29,18 @@ public class DoormanEndpoint {
         return Response.ok().build();
     }
 
+    @GET
+    @Path("/openGarage")
+    public Response openGarage() {
+        try {
+            Process process = Runtime.getRuntime().exec("pwd");
+            printResults(process);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return Response.ok().build();
+    }
+
     public static void printResults(Process process) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
         String line = "";
