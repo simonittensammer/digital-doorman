@@ -10,30 +10,32 @@ app.get('/', (req, res) => {
 
 app.get('/openDoor', (req, res) => {
     exec("gpio -g write 12 0", (error, stdout, stderr) => {
-        console.log('door open');
+        // console.log('door open');
     });
 
     const timeoutObj = setTimeout(() => {
         exec("gpio -g write 12 1", (error, stdout, stderr) => {
-            console.log('door close');
+            // console.log('door close');
         });
     }, 1500);
-
+    
+    console.log(Date.now() + ': Door opened');
     res.send('Door opened');
 });
 
 app.get('/openGarage', (req, res) => {
     exec("gpio -g write 16 0", (error, stdout, stderr) => {
-        console.log('garage start');
+        // console.log('garage start');
     });
-
+    
     const timeoutObj = setTimeout(() => {
         exec("gpio -g write 16 1", (error, stdout, stderr) => {
-            console.log('garage stop');
+            // console.log('garage stop');
         });
     }, 250);
-
-    res.send('Door opened');
+    
+    console.log(Date.now() + ': Garage opened');
+    res.send('Garage opened');
 });
 
 app.listen(port, () => {
