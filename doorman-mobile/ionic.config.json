@@ -1,5 +1,7 @@
 {
   "name": "doorman-mobile",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

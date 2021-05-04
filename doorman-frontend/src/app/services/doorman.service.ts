@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
 })
 export class DoormanService {
 
-  SERVER_URL = 'http://localhost:8000/';
+  SERVER_URL = 'http://10.0.0.170:8000/';
 
   constructor(
     private http: HttpClient
